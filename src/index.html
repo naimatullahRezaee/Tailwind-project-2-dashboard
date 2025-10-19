@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>Document</title>
     <link rel="stylesheet" href="output.css" />
   </head>
@@ -85,7 +86,81 @@
           </h1>
           <p class="mt-4">These are the stats for today, have a good day</p>
         </div>
+        <!-- Cards Container -->
+        <div class="flex justify-between m-7 space-x-6">
+          <div class="Left-Card bg-white w-1/2 p-4">
+            <img src="images/wallet.png" class="w-10 h-10" alt="" />
+            <h3 class="font-bold text-xl text-gray-700">Supper Plus</h3>
+            <p class="uppercase font-bold text-sm text-gray-400 mt-1">Sales</p>
+            <span class="font-bold text-3xl">$800,000</span>
+            <span
+              class="bg-green-500 text-white p-1 rounded-full text-sm font-bold"
+              >+95%</span
+            >
+            <div>
+              <canvas id="myChart"></canvas>
+            </div>
+          </div>
+          <div class="Right-Card bg-white w-1/2 p-4">
+            <img src="images/wallet.png" class="w-10 h-10" alt="" />
+            <h3 class="font-bold text-xl text-gray-700">Supper Pro</h3>
+            <p class="uppercase font-bold text-sm text-gray-400 mt-1">Sales</p>
+            <span class="font-bold text-3xl">-550,835</span>
+            <span
+              class="bg-red-500 text-white p-1 rounded-full text-sm font-bold"
+              >-20%</span
+            >
+            <div>
+              <canvas id="myChart2"></canvas>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+
+    <script>
+      const ctx = document.getElementById("myChart");
+      const ctx2 = document.getElementById("myChart2");
+      new Chart(ctx, {
+        type: "bar",
+        data: {
+          labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+          datasets: [
+            {
+              label: "Sales for the year",
+              data: [10, 20, 30, 40, 50, 60],
+              borderWidth: 1,
+            },
+          ],
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+            },
+          },
+        },
+      });
+      new Chart(ctx2, {
+        type: "line",
+        data: {
+          labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+          datasets: [
+            {
+              label: "Sales for the year",
+              data: [10, 50, 25, 30, 40, 14],
+              borderWidth: 1,
+            },
+          ],
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+            },
+          },
+        },
+      });
+    </script>
   </body>
 </html>
