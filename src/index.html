@@ -9,7 +9,7 @@
   </head>
   <body class="bg-gray-200">
     <div class="flex">
-      <div class="w-1/5 bg-green-900 h-screen">
+      <div class="w-1/5 bg-green-900">
         <div>
           <h1
             class="bg-green-800 text-xl font-bold text-gray-200 p-5 uppercase"
@@ -115,12 +115,43 @@
             </div>
           </div>
         </div>
+        <!-- Second Chart -->
+        <div class="flex justify-between m-7 space-x-6">
+          <div class="Left-Card bg-white w-1/2 p-4">
+            <img src="images/wallet.png" class="w-10 h-10" alt="" />
+            <h3 class="font-bold text-xl text-gray-700">Supper Plus</h3>
+            <p class="uppercase font-bold text-sm text-gray-400 mt-1">Sales</p>
+            <span class="font-bold text-3xl">$800,000</span>
+            <span
+              class="bg-green-500 text-white p-1 rounded-full text-sm font-bold"
+              >+95%</span
+            >
+            <div>
+              <canvas id="myChart3"></canvas>
+            </div>
+          </div>
+          <div class="Right-Card bg-white w-1/2 p-4">
+            <img src="images/wallet.png" class="w-10 h-10" alt="" />
+            <h3 class="font-bold text-xl text-gray-700">Supper Pro</h3>
+            <p class="uppercase font-bold text-sm text-gray-400 mt-1">Sales</p>
+            <span class="font-bold text-3xl">-550,835</span>
+            <span
+              class="bg-red-500 text-white p-1 rounded-full text-sm font-bold"
+              >-20%</span
+            >
+            <div>
+              <canvas id="myChart4"></canvas>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
     <script>
       const ctx = document.getElementById("myChart");
       const ctx2 = document.getElementById("myChart2");
+      const ctx3 = document.getElementById("myChart3");
+      const ctx4 = document.getElementById("myChart4");
       new Chart(ctx, {
         type: "bar",
         data: {
@@ -143,6 +174,46 @@
       });
       new Chart(ctx2, {
         type: "line",
+        data: {
+          labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+          datasets: [
+            {
+              label: "Sales for the year",
+              data: [10, 50, 25, 30, 40, 14],
+              borderWidth: 1,
+            },
+          ],
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+            },
+          },
+        },
+      });
+      new Chart(ctx3, {
+        type: "pie",
+        data: {
+          labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+          datasets: [
+            {
+              label: "Sales for the year",
+              data: [10, 50, 25, 30, 40, 14],
+              borderWidth: 1,
+            },
+          ],
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+            },
+          },
+        },
+      });
+      new Chart(ctx4, {
+        type: "radar",
         data: {
           labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
           datasets: [
